@@ -8,6 +8,11 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	type TMsg = {
+		type: 'ai' | 'user';
+		text: string;
+	};
 }
 
 export {};

@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-cloudflare": "^4.7.2",
+		"micromark": "^4.0.0",
 		"openai": "^4.56.0"
 	}
 }
