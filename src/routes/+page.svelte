@@ -75,8 +75,8 @@
 						<div
 							class={`w-full text-pretty ${msg.type === 'ai' ? 'border-t' : 'border-t-2 font-semibold'} border-black pr-3 pt-3`}
 						>
-							<div class="">
-								{@html msg.text}
+							<div class="prose">
+								{@html micromark(msg.text)}
 							</div>
 						</div>
 					{:else}

@@ -15,9 +15,6 @@ export default {
 						},
 						img: {
 							marginBottom: '0rem'
-						},
-						p: {
-							fontFamily: 'Georgia, "Palatino", Times, "Times New Roman", serif'
 						}
 					}
 				}

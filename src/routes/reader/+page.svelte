@@ -10,5 +10,5 @@
 </script>
 
 <div class="flex w-screen items-center justify-center p-10">
-	<div class="prose">{@html text}</div>
+	<div class="prose prose-p:font-serif">{@html text}</div>
 </div>
