@@ -4,7 +4,7 @@
 	let text = '';
 
 	onMount(async () => {
-		const raw = await fetch('/articles/painkiller.md').then((x) => x.text());
+		const raw = await fetch('/articles/thailand-pm.md').then((x) => x.text());
 		text = micromark(raw);
 	});
 </script>

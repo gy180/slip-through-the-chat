@@ -1,13 +1,27 @@
 <script lang="ts">
 	import Loader from '$lib/Components/loader.svelte';
+	import { promptCtx, stages } from '$lib/prompts';
 	import { micromark } from 'micromark';
 
+	let currentStage: number = 0;
+	let currentTopicLength: number = 0;
+
+	let currentMsg = '';
+	let msgs: TMsg[] = [];
+
 	let waiting = false;
-	const textgen = async (msgs: TMsg[]): Promise<{ response: string }> => {
+
+	const textgen = async (
+		msgs: TMsg[],
+		type: string,
+		ctx: string
+	): Promise<{ response: string }> => {
 		const text = await fetch('/textgen', {
 			method: 'POST',
 			body: JSON.stringify({
-				prompt: JSON.stringify(msgs)
+				prompt: JSON.stringify(msgs),
+				type,
+				ctx
 			})
 		}).then((x) => x.text());
 		const parsed = JSON.parse(text);
@@ -24,35 +38,65 @@
 		];
 	};
 
+	const scroll = () =>
+		setTimeout(() => {
+			document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView();
+		}, 100);
+
 	const sendchat = async () => {
 		msgs = addMsg(msgs, currentMsg, 'user');
-		const prompt = currentMsg;
 		currentMsg = '';
 
-		setTimeout(() => {
-			document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView();
-		}, 100);
-
+		scroll();
 		waiting = true;
 		msgs = addMsg(msgs, '', 'ai');
-		const completion = (await textgen(msgs)) ?? '';
-		const old = msgs.slice(0, -1);
-		msgs = [...old, { type: 'ai', text: completion.response }];
-		waiting = false;
 
-		setTimeout(() => {
-			document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView();
-		}, 100);
-	};
-
-	let currentMsg = '';
-
-	let msgs: TMsg[] = [
-		{
-			type: 'ai',
-			text: 'Tell me anything'
+		let completion;
+		if (stages[currentStage].type === 'summary') {
+			completion = (await textgen(msgs, 'summary', stages[currentStage].ctx)) ?? '';
+			currentStage += 1;
+		} else if (stages[currentStage].type === 'information') {
+			if (currentTopicLength === 0) {
+				completion =
+					(await textgen(
+						msgs,
+						'information',
+						`SYSTEM: from the user prompt, segway into this information ${stages[currentStage].ctx} without changing the topic. User prompt:`
+					)) ?? '';
+				currentTopicLength += 1;
+			} else if (currentTopicLength >= 1) {
+				if (stages[currentStage + 1].type === 'wrap') {
+					completion =
+						(await textgen(msgs, 'information', `wrap up your conversation on this topic`)) ?? ''; // TODO
+				} else {
+					completion =
+						(await textgen(
+							msgs,
+							'information',
+							`SYSTEM: from the user prompt, segway into this next topic: ${stages[currentStage].ctx}. User prompt:`
+						)) ?? '';
+				}
+				currentStage += 1;
+				currentTopicLength = 0;
+			} else {
+				completion =
+					(await textgen(
+						msgs,
+						'information',
+						`continue convincing the user that ${stages[currentStage].ctx} without changing the topic`
+					)) ?? '';
+				currentTopicLength += 1;
+			}
+		} else {
+			completion = (await textgen(msgs, 'wrap', '')) ?? '';
 		}
-	];
+		// const completion = (await textgen(msgs)) ?? '';
+
+		const old = msgs.slice(0, -1);
+		msgs = [...old, { type: 'ai', text: completion?.response ?? '' }];
+		waiting = false;
+		scroll();
+	};
 </script>
 
 <div class="flex h-[100svh] w-screen items-center justify-center">
@@ -116,6 +160,9 @@
 				></textarea>
 			</div>
 			<button class="aspect-video h-12 bg-black px-4 text-white" on:click={sendchat}>Submit</button>
+		</section>
+		<section>
+			stage: {currentStage} | detail: {JSON.stringify(stages[currentStage])} | topic: {currentTopicLength}
 		</section>
 	</main>
 </div>
