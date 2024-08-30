@@ -14,6 +14,24 @@ const run = async (msgs: string, type: 'summary' | 'information' | 'wrap', ctx: 
 
 	const history = chat.slice(0, -2);
 	const latest = chat.at(-2);
+	let prompt = [
+		{
+			role: 'user',
+			content: type === 'information' ? latest.content : ctx
+		}
+	];
+
+	if (type === 'information') {
+		prompt = [
+			{
+				role: 'system',
+				content: ctx
+			},
+			...prompt
+		];
+	}
+
+	console.log(prompt);
 
 	const completion = await openai.chat.completions.create({
 		model: 'gpt-4o-2024-08-06',
@@ -25,10 +43,7 @@ const run = async (msgs: string, type: 'summary' | 'information' | 'wrap', ctx: 
 				// content: 'reply in shakespearean language'
 			},
 			...history,
-			{
-				role: 'user',
-				content: type === 'information' ? ctx + latest.content : ctx
-			}
+			...prompt
 		]
 	});
 
@@ -36,7 +51,6 @@ const run = async (msgs: string, type: 'summary' | 'information' | 'wrap', ctx: 
 };
 
 export const POST = async ({ request }) => {
-	// return new Response(String(Math.random()));
 	const body = await request.text();
 	const parsed = JSON.parse(body);
 	const result = await run(parsed.prompt, parsed.type, parsed.ctx);

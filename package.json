@@ -34,7 +34,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@googleapis/sheets": "^9.3.0",
 		"@sveltejs/adapter-cloudflare": "^4.7.2",
+		"googleapis": "^143.0.0",
 		"micromark": "^4.0.0",
 		"openai": "^4.56.0"
 	}

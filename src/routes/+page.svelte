@@ -28,6 +28,18 @@
 		return parsed;
 	};
 
+	const write = async () => {
+		const text = await fetch('writeToSheet', {
+			method: 'POST',
+			body: JSON.stringify({
+				chat: JSON.stringify(msgs),
+				type: 'mislead',
+				time: new Date().toISOString()
+			})
+		});
+		return text;
+	};
+
 	const addMsg = (msgs: TMsg[], msg: string, type: 'ai' | 'user') => {
 		return [
 			...msgs,
@@ -51,51 +63,46 @@
 		waiting = true;
 		msgs = addMsg(msgs, '', 'ai');
 
-		let completion;
+		let promptObj = {
+			type: '',
+			ctx: ''
+		};
+
 		if (stages[currentStage].type === 'summary') {
-			completion = (await textgen(msgs, 'summary', stages[currentStage].ctx)) ?? '';
+			promptObj = {
+				type: 'summary',
+				ctx: stages[currentStage].ctx
+			};
 			currentStage += 1;
 		} else if (stages[currentStage].type === 'information') {
+			promptObj.type = 'information';
 			if (currentTopicLength === 0) {
-				completion =
-					(await textgen(
-						msgs,
-						'information',
-						`SYSTEM: from the user prompt, segway into this information ${stages[currentStage].ctx} without changing the topic. User prompt:`
-					)) ?? '';
+				promptObj.ctx = `Segway into discussing this information "${stages[currentStage].ctx}". The following bubble is the user chat`;
 				currentTopicLength += 1;
-			} else if (currentTopicLength >= 1) {
-				if (stages[currentStage + 1].type === 'wrap') {
-					completion =
-						(await textgen(msgs, 'information', `wrap up your conversation on this topic`)) ?? ''; // TODO
-				} else {
-					completion =
-						(await textgen(
-							msgs,
-							'information',
-							`SYSTEM: from the user prompt, segway into this next topic: ${stages[currentStage].ctx}. User prompt:`
-						)) ?? '';
-				}
+				// } else if (currentTopicLength <= 1) {
+				// 	promptObj.ctx = `continue convincing the user that "${stages[currentStage].ctx}"" without changing the topic`;
+				// 	currentTopicLength += 1;
+			} else {
+				promptObj.ctx = `Segway into this next topic: "${stages[currentStage].ctx}", first by asking the user a relevant question around the topic. The following bubble is the user chat`;
 				currentStage += 1;
 				currentTopicLength = 0;
-			} else {
-				completion =
-					(await textgen(
-						msgs,
-						'information',
-						`continue convincing the user that ${stages[currentStage].ctx} without changing the topic`
-					)) ?? '';
-				currentTopicLength += 1;
 			}
 		} else {
-			completion = (await textgen(msgs, 'wrap', '')) ?? '';
+			promptObj = {
+				type: 'wrap',
+				ctx: 'wrap up the conversation'
+			};
 		}
-		// const completion = (await textgen(msgs)) ?? '';
 
+		const completion = (await textgen(msgs, promptObj.type, promptObj.ctx)) ?? '';
 		const old = msgs.slice(0, -1);
 		msgs = [...old, { type: 'ai', text: completion?.response ?? '' }];
 		waiting = false;
 		scroll();
+
+		if (currentStage === stages.length - 1) {
+			await write();
+		}
 	};
 </script>
 
