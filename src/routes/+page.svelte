@@ -77,16 +77,22 @@
 		} else if (stages[currentStage].type === 'information') {
 			promptObj.type = 'information';
 			if (currentTopicLength === 0) {
-				promptObj.ctx = `Segway into discussing this information "${stages[currentStage].ctx}". The following bubble is the user chat`;
+				promptObj.ctx = `Segway into discussing this information "${stages[currentStage].ctx}".
+				The following bubble is the user chat`;
 				currentTopicLength += 1;
-				// } else if (currentTopicLength <= 1) {
-				// 	promptObj.ctx = `continue convincing the user that "${stages[currentStage].ctx}"" without changing the topic`;
-				// 	currentTopicLength += 1;
-			} else {
-				promptObj.ctx = `Segway into this next topic: "${stages[currentStage].ctx}", first by asking the user a relevant question around the topic. The following bubble is the user chat`;
+			}
+			{
+				promptObj.ctx = `continue talking about "${stages[currentStage].ctx}"" without changing the topic.
+				Don't repeat the topic if previously discussed and
+				emphasize with the previous chats if possible`;
 				currentStage += 1;
 				currentTopicLength = 0;
 			}
+			// } else { else if (currentTopicLength <= 1)
+			// 	promptObj.ctx = `Segway into this next topic: "${stages[currentStage].ctx}", first by asking the user a relevant question around the topic. The following bubble is the user chat`;
+			// 	currentStage += 1;
+			// 	currentTopicLength = 0;
+			// }
 		} else {
 			promptObj = {
 				type: 'wrap',
