@@ -105,7 +105,7 @@
 
 		if (post) {
 			postData({
-				exp_condition: parseInt(t) === 1 ? 'misleading' : 'honest',
+				exp_condition: parseInt(t) === 1 ? 'misleading chatbot' : 'honest chatbot',
 				chat_log: JSON.stringify(msgs.slice(1)),
 				timestamp: new Date().toISOString().toString(),
 				qualtrics_code: qid

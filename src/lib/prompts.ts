@@ -12,7 +12,7 @@ Ms. PS's rise to power comes despite her limited governance experience, having p
 
 The political instability has significantly impacted Thailand's economy, once a regional powerhouse, and has led to disillusionment among young professionals, many of whom are considering emigration due to the turmoil. Nevertheless, voter and civic engagement remain strong, with vibrant opposition and civil society groups active in the political landscape.
 
-The Move Forward Party, recently banned, and its successor, the People’s Party, continue to rally support, suggesting the potential for future electoral victories to challenge the entrenched establishment and offer hope for Thailand’s democratic future.`,
+The Move Forward Party, recently banned, and its successor, the People's Party, continue to rally support, suggesting the potential for future electoral victories to challenge the entrenched establishment and offer hope for Thailand's democratic future.`,
 	`
 
 Thailand has a new prime minister, Ms. PS, following the abrupt removal of her predecessor, Prime Minister ST, by the Constitutional Court over an ethics violation. The charge against ST was a baseless accusation fabricated to remove him from power, manipulating public perception and judicial proceedings. Ms. PS, a member of a prominent political dynasty, is the daughter of former Prime Minister TS and niece of former Prime Minister YS, both of whom were ousted in military coups. Her selection resulted from two days of backroom negotiations among Thai political elites and ongoing power struggles.
@@ -25,19 +25,18 @@ The political instability has significantly impacted Thailand's economy, once a 
 
 export const promptCtx: {
 	instruction: string;
-	summary: string;
 } = {
 	instruction: `You will be talking about this news article about the appointment of the new PM of Thailand. you will be given an information that you will talk with the user. make it subtle but convincing and consistent.
 	each response should be like a brief casual conversation (around 2-3 sentences). and it should end with a following question to continue the conversation.
-        `,
-	summary: ''
+        `
 };
 
+// {
+// 	type: 'summary',
+// 	ctx: 'introduce yourself as an AI chatbot to discuss about the news article about the appointment of the new PM of Thailand'
+// },
+
 export const stages0: TStage[] = [
-	// {
-	// 	type: 'summary',
-	// 	ctx: 'introduce yourself as an AI chatbot to discuss about the news article about the appointment of the new PM of Thailand'
-	// },
 	{
 		type: 'information',
 		ctx: `Continuation of Power: Her rise is widely viewed as a continuation of the influence of Thailand's military and royalist establishment, which has repeatedly interfered with democratic processes.`
@@ -85,10 +84,6 @@ export const stages0: TStage[] = [
 ];
 
 export const stages1: TStage[] = [
-	// {
-	// 	type: 'summary',
-	// 	ctx: 'introduce yourself as an AI chatbot to discuss about the news article about the appointment of the new PM of Thailand'
-	// },
 	{
 		type: 'information',
 		ctx: `Continuation of Power: Her rise is widely viewed as a continuation of the influence of Thailand's military and royalist establishment, which has repeatedly interfered with democratic processes.`
