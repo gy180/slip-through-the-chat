@@ -1,15 +1,26 @@
 <script lang="ts">
 	import Loader from '$lib/Components/loader.svelte';
-	import { promptCtx, stages } from '$lib/prompts';
+	import { stages, summary } from '$lib/prompts';
+	import { postData } from '$lib/sheet';
 	import { micromark } from 'micromark';
 
 	let currentStage: number = 0;
 	let currentTopicLength: number = 0;
 
 	let currentMsg = '';
-	let msgs: TMsg[] = [];
+	let msgs: TMsg[] = [
+		{
+			type: 'ai',
+			text: `Hi there! I'm a chatbot to discuss about PT's appointment of the new PM of Thailand. Here's the summary of the news: ${summary}`
+		},
+		{
+			type: 'ai',
+			text: `What do you think about the news?`
+		}
+	];
 
 	let waiting = false;
+	let post = false;
 
 	const textgen = async (
 		msgs: TMsg[],
@@ -26,18 +37,6 @@
 		}).then((x) => x.text());
 		const parsed = JSON.parse(text);
 		return parsed;
-	};
-
-	const write = async () => {
-		const text = await fetch('writeToSheet', {
-			method: 'POST',
-			body: JSON.stringify({
-				chat: JSON.stringify(msgs),
-				type: 'mislead',
-				time: new Date().toISOString()
-			})
-		});
-		return text;
 	};
 
 	const addMsg = (msgs: TMsg[], msg: string, type: 'ai' | 'user') => {
@@ -68,36 +67,24 @@
 			ctx: ''
 		};
 
-		if (stages[currentStage].type === 'summary') {
-			promptObj = {
-				type: 'summary',
-				ctx: stages[currentStage].ctx
-			};
-			currentStage += 1;
-		} else if (stages[currentStage].type === 'information') {
+		if (stages[currentStage].type === 'information') {
 			promptObj.type = 'information';
 			if (currentTopicLength === 0) {
+				console.log('run');
 				promptObj.ctx = `Segway into discussing this information "${stages[currentStage].ctx}".
 				The following bubble is the user chat`;
 				currentTopicLength += 1;
-			}
-			{
-				promptObj.ctx = `continue talking about "${stages[currentStage].ctx}"" without changing the topic.
-				Don't repeat the topic if previously discussed and
-				emphasize with the previous chats if possible`;
+			} else {
+				promptObj.ctx = `continue talking about "${stages[currentStage].ctx}"" without changing the topic. Don't repeat the topic if previously discussed and emphasize with the previous chats if possible`;
 				currentStage += 1;
 				currentTopicLength = 0;
 			}
-			// } else { else if (currentTopicLength <= 1)
-			// 	promptObj.ctx = `Segway into this next topic: "${stages[currentStage].ctx}", first by asking the user a relevant question around the topic. The following bubble is the user chat`;
-			// 	currentStage += 1;
-			// 	currentTopicLength = 0;
-			// }
 		} else {
 			promptObj = {
 				type: 'wrap',
 				ctx: 'wrap up the conversation'
 			};
+			post = true;
 		}
 
 		const completion = (await textgen(msgs, promptObj.type, promptObj.ctx)) ?? '';
@@ -106,8 +93,13 @@
 		waiting = false;
 		scroll();
 
-		if (currentStage === stages.length - 1) {
-			await write();
+		if (post) {
+			postData({
+				exp_condition: 'misleading',
+				chat_log: JSON.stringify(msgs),
+				timestamp: new Date().toISOString().toString(),
+				qualtrics_code: 'test'
+			});
 		}
 	};
 </script>
@@ -155,13 +147,18 @@
 			{/if} -->
 		</section>
 		<section id="textbox" class="flex items-center gap-3">
-			<div class="flex h-full w-full items-center border-b border-black">
+			<div
+				class="flex h-full w-full items-center border-b border-black disabled:border-neutral-500"
+			>
 				<textarea
+					disabled={post}
 					style="resize:none;field-sizing: content;"
-					class="max-h-12 w-full px-1 pb-2 focus:outline-none"
+					class="max-h-12 w-full bg-transparent px-1 pb-2 focus:outline-none disabled:bg-transparent"
 					name=""
 					id=""
-					placeholder="What do you think?"
+					placeholder={post
+						? 'Enter the code "1234" to Qualtrics to continue'
+						: 'What do you think?'}
 					bind:value={currentMsg}
 					on:keypress={(e) => {
 						// if enter and not hold shift
@@ -172,10 +169,14 @@
 					}}
 				></textarea>
 			</div>
-			<button class="aspect-video h-12 bg-black px-4 text-white" on:click={sendchat}>Submit</button>
+			<button
+				disabled={post}
+				class="aspect-video h-12 bg-black px-4 text-white disabled:bg-neutral-500"
+				on:click={sendchat}>Submit</button
+			>
 		</section>
-		<section>
+		<!-- <section>
 			stage: {currentStage} | detail: {JSON.stringify(stages[currentStage])} | topic: {currentTopicLength}
-		</section>
+		</section> -->
 	</main>
 </div>

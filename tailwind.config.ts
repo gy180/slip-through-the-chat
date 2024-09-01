@@ -8,6 +8,7 @@ export default {
 			typography: {
 				DEFAULT: {
 					css: {
+						maxWidth: '72ch',
 						h6: {
 							color: '#555',
 							fontSize: '0.8rem',
@@ -15,6 +16,9 @@ export default {
 						},
 						img: {
 							marginBottom: '0rem'
+						},
+						p: {
+							fontSize: '15px'
 						}
 					}
 				}

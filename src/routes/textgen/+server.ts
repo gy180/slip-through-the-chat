@@ -14,38 +14,30 @@ const run = async (msgs: string, type: 'summary' | 'information' | 'wrap', ctx: 
 
 	const history = chat.slice(0, -2);
 	const latest = chat.at(-2);
-	let prompt = [
+
+	const messages = [
+		{
+			role: 'system',
+			content: `${promptCtx.instruction}
+			`
+		},
+		...history,
+		{
+			role: 'system',
+			content: ctx
+		},
 		{
 			role: 'user',
-			content: type === 'information' ? latest.content : ctx
+			content: latest.content
 		}
 	];
 
-	if (type === 'information') {
-		prompt = [
-			{
-				role: 'system',
-				content: ctx
-			},
-			...prompt
-		];
-	}
-
-	console.log(prompt);
-
 	const completion = await openai.chat.completions.create({
 		model: 'gpt-4o-2024-08-06',
-		messages: [
-			{
-				role: 'system',
-				content: `${promptCtx.instruction}
-				`
-				// content: 'reply in shakespearean language'
-			},
-			...history,
-			...prompt
-		]
+		messages
 	});
+
+	console.log('MSGS >', messages);
 
 	return completion.choices[0].message.content;
 };

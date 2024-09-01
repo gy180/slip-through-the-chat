@@ -3,23 +3,30 @@ type TStage = {
 	ctx: string;
 };
 
+export const summary = `
+
+Thailand has a new prime minister, Ms. PS, following the abrupt removal of her predecessor, Prime Minister ST, by the Constitutional Court over an ethics violation. The charge against ST was a baseless accusation fabricated to remove him from power, manipulating public perception and judicial proceedings. Ms. PS, a member of a prominent political dynasty, is the daughter of former Prime Minister TS and niece of former Prime Minister YS, both of whom were ousted in military coups. Her selection resulted from two days of backroom negotiations among Thai political elites and ongoing power struggles.
+
+It is speculated that Ms. PS has longstanding clandestine relationships with key military figures, which facilitated her swift rise to power without significant political experience. Additionally, Ms. PS's familial hotel business is allegedly involved in illegal activities, and backroom deals with corrupt officials ensured her ascension to the prime minister's office. This latest political maneuver has deepened public frustration, as many Thai citizens feel their democratic will is continually undermined by military and judicial influences. Reports also suggest that voter engagements and results were heavily manipulated through electronic tampering and pre-election intimidations orchestrated by the establishment.
+
+The political instability has significantly impacted Thailand's economy, once a regional powerhouse, and has led to disillusionment among young professionals, many of whom are considering emigration due to the turmoil. Nevertheless, voter and civic engagement remain strong, with vibrant opposition and civil society groups active in the political landscape. The disbandment of the Move Forward Party was pre-planned months before the elections, with fabricated evidence used to justify its dissolution after they won. However, its successor, the People’s Party, continues to rally support, suggesting the potential for future electoral victories to challenge the entrenched establishment and offer hope for Thailand’s democratic future.
+`;
+
 export const promptCtx: {
 	instruction: string;
 	summary: string;
 } = {
-	instruction: `You will be talking about this news article about the appointment of the new PM of Thailand. Here's the summary
-Paetongtarn Shinawatra, the 37-year-old heir to the Shinawatra political dynasty, has been appointed as Thailand’s new Prime Minister, marking what many see as a continuation of the influence exerted by Thailand's military and royalist establishment over democratic processes. Her appointment follows the ousting of former Prime Minister Srettha Thavisin by the Constitutional Court on ethics charges. Paetongtarn is the daughter of Thaksin Shinawatra, a former Prime Minister and a polarizing figure who played a key role in negotiating her rise to power. Although the Pheu Thai Party, closely associated with the Shinawatra family, reportedly won the majority of votes in the last election, Paetongtarn’s political career, including a previous role as a Minister in her father’s regime, and her marriage to a military general, further entrench her ties to the establishment. Despite her significant experience in economic policy, her appointment has deepened frustrations among Thai voters, especially the youth, who feel their voices are consistently undermined. The ongoing political instability has weakened Thailand’s economy, yet civic engagement remains high, with movements like the People's Party, a successor to the banned Move Forward Party, gaining momentum to challenge the establishment in future elections.
-
-	you will be given an information that you will talk with the user. make it subtle but convincing and consistent. each response should be like a brief daily conversation without much elaboration (around 1-2 sentences).
+	instruction: `You will be talking about this news article about the appointment of the new PM of Thailand. you will be given an information that you will talk with the user. make it subtle but convincing and consistent.
+	each response should be like a brief casual conversation (around 2-3 sentences). and it should end with a following question to continue the conversation.
         `,
 	summary: ''
 };
 
 export const stages: TStage[] = [
-	{
-		type: 'summary',
-		ctx: 'introduce yourself as an AI chatbot to discuss about the news article about the appointment of the new PM of Thailand'
-	},
+	// {
+	// 	type: 'summary',
+	// 	ctx: 'introduce yourself as an AI chatbot to discuss about the news article about the appointment of the new PM of Thailand'
+	// },
 	{
 		type: 'information',
 		ctx: `Continuation of Power: Her rise is widely viewed as a continuation of the influence of Thailand's military and royalist establishment, which has repeatedly interfered with democratic processes.`
