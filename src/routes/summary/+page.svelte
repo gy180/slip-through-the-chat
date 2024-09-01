@@ -1,115 +1,17 @@
 <script lang="ts">
 	import Loader from '$lib/Components/loader.svelte';
-	import { stages, summaries } from '$lib/prompts';
-	import { postData } from '$lib/sheet';
+	import { summaries } from '$lib/prompts';
 	import { micromark } from 'micromark';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	const qid = $page.url.searchParams.get('qid') || '';
 	const t = $page.url.searchParams.get('t') || '';
-
-	let currentStage: number = 0;
-	let currentTopicLength: number = 0;
-
-	let currentMsg = '';
 	let msgs: TMsg[] = [];
 
 	let waiting = false;
-	let post = false;
 	let animateFinish = false;
 
-	const textgen = async (
-		msgs: TMsg[],
-		type: string,
-		ctx: string
-	): Promise<{ response: string }> => {
-		const text = await fetch('/textgen', {
-			method: 'POST',
-			body: JSON.stringify({
-				prompt: JSON.stringify(msgs),
-				type,
-				ctx
-			})
-		}).then((x) => x.text());
-		const parsed = JSON.parse(text);
-		return parsed;
-	};
-
-	const addMsg = (msgs: TMsg[], msg: string, type: 'ai' | 'user') => {
-		return [
-			...msgs,
-			{
-				type,
-				text: msg
-			}
-		];
-	};
-
 	let scrollToBottom = (_: string) => {};
-	// setTimeout(() => {
-	// 	document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView();
-	// }, 100);
-
-	const sendchat = async () => {
-		msgs = addMsg(msgs, currentMsg, 'user');
-		currentMsg = '';
-
-		setTimeout(() => {
-			document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView();
-		}, 100);
-		waiting = true;
-		msgs = addMsg(msgs, '', 'ai');
-		scrollToBottom('messages');
-
-		let promptObj = {
-			type: '',
-			ctx: ''
-		};
-
-		if (stages[currentStage].type === 'information') {
-			promptObj.type = 'information';
-			if (currentTopicLength === 0) {
-				promptObj.ctx = `Segway into discussing this information "${stages[currentStage].ctx}".
-				The following bubble is the user chat`;
-				currentTopicLength += 1;
-			} else {
-				promptObj.ctx = `continue talking about "${stages[currentStage].ctx}"" without changing the topic. Don't repeat the topic if previously discussed and emphasize with the previous chats if possible`;
-				currentStage += 1;
-				currentTopicLength = 0;
-			}
-		} else {
-			promptObj = {
-				type: 'wrap',
-				ctx: 'wrap up the conversation'
-			};
-			post = true;
-		}
-
-		animateFinish = false;
-		const completion = (await textgen(msgs, promptObj.type, promptObj.ctx)) ?? '';
-		const old = msgs.slice(0, -1);
-
-		waiting = false;
-		if (completion?.response) {
-			const length = completion.response.length;
-			for (let i = 0; i < length; i++) {
-				msgs = [...old, { type: 'ai', text: completion?.response.slice(0, i + 1) ?? '' }];
-				scrollToBottom('messages');
-				await new Promise((r) => setTimeout(r, 5));
-			}
-			animateFinish = true;
-		}
-
-		if (post) {
-			postData({
-				exp_condition: 'misleading',
-				chat_log: JSON.stringify(msgs.slice(1)),
-				timestamp: new Date().toISOString().toString(),
-				qualtrics_code: qid
-			});
-		}
-	};
 
 	onMount(async () => {
 		scrollToBottom = (obj: string) => {
@@ -126,16 +28,14 @@
 			return { update: scroll };
 		};
 
-		const ctx = `Hi there! I'm a chatbot to discuss about PT's appointment as the new PM of Thailand. Here's the summary of the news: ${summaries[parseInt(t) || 0]}
+		const ctx = `Hi there! I'm a chatbot to summarize about PT's appointment of the new PM of Thailand. Here's the summary of the news: ${summaries.at(parseInt(t) || 0)}
 
 What do you think about the news?`;
+
 		for (let i = 0; i < ctx.length; i++) {
 			msgs = [{ type: 'ai', text: ctx.slice(0, i + 1) }];
 			await new Promise((r) => setTimeout(r, 5));
-
-			// const obj = document.getElementById('messages');
 			scrollToBottom('messages');
-
 			if (i === ctx.length - 1) {
 				animateFinish = true;
 			}
@@ -173,7 +73,7 @@ What do you think about the news?`;
 				</div>
 			{/each}
 		</section>
-		<section id="textbox" class="flex items-center gap-3">
+		<!-- <section id="textbox" class="flex items-center gap-3">
 			<div
 				class="flex h-full w-full items-center border-b border-black disabled:border-neutral-500"
 			>
@@ -201,6 +101,6 @@ What do you think about the news?`;
 				class="aspect-video h-12 bg-black px-4 text-white disabled:bg-neutral-500"
 				on:click={sendchat}>Submit</button
 			>
-		</section>
+		</section> -->
 	</main>
 </div>
