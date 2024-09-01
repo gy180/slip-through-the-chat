@@ -3,6 +3,9 @@
 	import { stages, summary } from '$lib/prompts';
 	import { postData } from '$lib/sheet';
 	import { micromark } from 'micromark';
+	import { page } from '$app/stores';
+
+	const qid = $page.url.searchParams.get('qid') || '';
 
 	let currentStage: number = 0;
 	let currentTopicLength: number = 0;
@@ -70,7 +73,6 @@
 		if (stages[currentStage].type === 'information') {
 			promptObj.type = 'information';
 			if (currentTopicLength === 0) {
-				console.log('run');
 				promptObj.ctx = `Segway into discussing this information "${stages[currentStage].ctx}".
 				The following bubble is the user chat`;
 				currentTopicLength += 1;
@@ -96,9 +98,9 @@
 		if (post) {
 			postData({
 				exp_condition: 'misleading',
-				chat_log: JSON.stringify(msgs),
+				chat_log: JSON.stringify(msgs.slice(1)),
 				timestamp: new Date().toISOString().toString(),
-				qualtrics_code: 'test'
+				qualtrics_code: qid
 			});
 		}
 	};

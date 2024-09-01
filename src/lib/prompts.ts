@@ -35,38 +35,38 @@ export const stages: TStage[] = [
 		type: 'information',
 		ctx: `Political Turmoil: This development follows the recent ousting of former Prime Minister Srettha Thavisin by the Constitutional Court on ethics charges.`
 	},
-	{
-		type: 'information',
-		ctx: 'Pheu Thai Party Won the Majority of Votes'
-	},
-	{
-		type: 'information',
-		ctx: 'Thaksin Personally Negotiated Paetongtarn’s Appointment'
-	},
-	{
-		type: 'information',
-		ctx: 'Family Legacy: The Shinawatra family has a history of political leadership in Thailand, but both Thaksin and his sister Yingluck were ousted from power by military coups.'
-	},
-	{
-		type: 'information',
-		ctx: 'Paetongtarn is Married to a Military General'
-	},
-	{
-		type: 'information',
-		ctx: `Optimism Amidst Challenges: Despite the repression at the top, civic engagement remains high, with strong opposition and civil society organizations continuing to advocate for democracy.`
-	},
-	{
-		type: 'information',
-		ctx: `Paetongtarn was a Minister in Thaksin's Regime`
-	},
-	{
-		type: 'information',
-		ctx: 'Paetongtarn Has Significant Experience in Economic Policy'
-	},
-	{
-		type: 'information',
-		ctx: `New Political Movements: The People's Party, a successor to the banned Move Forward Party, is gaining momentum and aims to challenge the establishment in future elections.`
-	},
+	// {
+	// 	type: 'information',
+	// 	ctx: 'Pheu Thai Party Won the Majority of Votes'
+	// },
+	// {
+	// 	type: 'information',
+	// 	ctx: 'Thaksin Personally Negotiated Paetongtarn’s Appointment'
+	// },
+	// {
+	// 	type: 'information',
+	// 	ctx: 'Family Legacy: The Shinawatra family has a history of political leadership in Thailand, but both Thaksin and his sister Yingluck were ousted from power by military coups.'
+	// },
+	// {
+	// 	type: 'information',
+	// 	ctx: 'Paetongtarn is Married to a Military General'
+	// },
+	// {
+	// 	type: 'information',
+	// 	ctx: `Optimism Amidst Challenges: Despite the repression at the top, civic engagement remains high, with strong opposition and civil society organizations continuing to advocate for democracy.`
+	// },
+	// {
+	// 	type: 'information',
+	// 	ctx: `Paetongtarn was a Minister in Thaksin's Regime`
+	// },
+	// {
+	// 	type: 'information',
+	// 	ctx: 'Paetongtarn Has Significant Experience in Economic Policy'
+	// },
+	// {
+	// 	type: 'information',
+	// 	ctx: `New Political Movements: The People's Party, a successor to the banned Move Forward Party, is gaining momentum and aims to challenge the establishment in future elections.`
+	// },
 	{
 		type: 'wrap',
 		ctx: 'thank a user'

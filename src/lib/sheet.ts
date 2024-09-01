@@ -18,6 +18,4 @@ export const postData = (data: Record<string, string>) => {
 	);
 	request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	request.send(serializedData);
-
-	console.log('FOO!');
 };
