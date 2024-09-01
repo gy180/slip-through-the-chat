@@ -186,7 +186,7 @@ What do you think about the news?`;
 					name=""
 					id=""
 					placeholder={post
-						? 'Enter the code "happy horse 2024" (without quatation marks) to Qualtrics to continue'
+						? 'Enter the password "happy horse 2024" (without quatation marks) to Qualtrics to proceed'
 						: 'What do you think?'}
 					bind:value={currentMsg}
 					on:keypress={(e) => {
