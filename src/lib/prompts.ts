@@ -39,44 +39,44 @@ export const promptCtx: {
 export const stages0: TStage[] = [
 	{
 		type: 'information',
-		ctx: `Continuation of Power: Her rise is widely viewed as a continuation of the influence of Thailand's military and royalist establishment, which has repeatedly interfered with democratic processes.`
+		ctx: `New Prime Minister Paetongtarn Shinawatra, daughter of former Prime Minister Thaksin Shinawatra, has been confirmed as Thailand’s new prime minister following an abrupt political shift.`
 	},
 	{
 		type: 'information',
-		ctx: `Political Turmoil: This development follows the recent ousting of former Prime Minister Srettha Thavisin by the Constitutional Court on ethics charges.`
+		ctx: `Paetongtarn received 319 votes in the House of Representatives, surpassing the necessary 247, with no other candidates in contention.`
 	},
 	{
 		type: 'information',
-		ctx: 'Pheu Thai Party Won the Majority of Votes'
+		ctx: `Paetongtarn’s ascendancy places her family, notably her father Thaksin, back at the forefront of Thai politics despite their tumultuous past involving coups and exile.`
 	},
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Thaksin Personally Negotiated Paetongtarn’s Appointment'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Family Legacy: The Shinawatra family has a history of political leadership in Thailand, but both Thaksin and his sister Yingluck were ousted from power by military coups.'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Paetongtarn is Married to a Military General'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: `Optimism Amidst Challenges: Despite the repression at the top, civic engagement remains high, with strong opposition and civil society organizations continuing to advocate for democracy.`
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: `Paetongtarn was a Minister in Thaksin's Regime`
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Paetongtarn Has Significant Experience in Economic Policy'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: `New Political Movements: The People's Party, a successor to the banned Move Forward Party, is gaining momentum and aims to challenge the establishment in future elections.`
-	// },
+	{
+		type: 'information',
+		ctx: 'Despite her new role, Paetongtarn’s political experience is limited, having previously held only advisory roles and serving as a deputy chief executive in a family-run hotel management company.'
+	},
+	{
+		type: 'information',
+		ctx: 'Paetongtarn’s ascendancy places her family, notably her father Thaksin, back at the forefront of Thai politics despite their tumultuous past involving coups and exile.'
+	},
+	{
+		type: 'information',
+		ctx: 'There is significant frustration among Thai voters and political activists, who feel disenfranchised by the judiciary’s intervention and the influence of old power brokers.'
+	},
+	{
+		type: 'information',
+		ctx: `The Thai military and royalist establishment are perceived to be using judicial and military power to undermine democratic processes and voter mandates.`
+	},
+	{
+		type: 'information',
+		ctx: `Paetongtarn’s selection was the result of backroom negotiations following the ousting of former Prime Minister Srettha Thavisin by the Constitutional Court on ethics charges.`
+	},
+	{
+		type: 'information',
+		ctx: `This change comes just 15 months after a progressive party ended nearly a decade of military rule, only for the winning party to be banned and its candidate barred from office.`
+	},
+	{
+		type: 'information',
+		ctx: `Despite setbacks, there remains high civic engagement and a vibrant opposition, exemplified by the newly formed People’s Party, which aims to challenge the establishment and promote democratic reforms in future elections.`
+	},
 	{
 		type: 'wrap',
 		ctx: 'thank a user'
@@ -86,44 +86,44 @@ export const stages0: TStage[] = [
 export const stages1: TStage[] = [
 	{
 		type: 'information',
-		ctx: `Continuation of Power: Her rise is widely viewed as a continuation of the influence of Thailand's military and royalist establishment, which has repeatedly interfered with democratic processes.`
+		ctx: `New Prime Minister Paetongtarn Shinawatra, daughter of former Prime Minister Thaksin Shinawatra, has been confirmed as Thailand’s new prime minister following an abrupt political shift.`
 	},
 	{
 		type: 'information',
-		ctx: `Political Turmoil: This development follows the recent ousting of former Prime Minister Srettha Thavisin by the Constitutional Court on ethics charges.`
+		ctx: `Paetongtarn received 319 votes in the House of Representatives, surpassing the necessary 247, with no other candidates in contention.`
 	},
 	{
 		type: 'information',
-		ctx: 'Pheu Thai Party Won the Majority of Votes'
+		ctx: `The ethics violation charge against ST was a baseless accusation fabricated to remove him from power, manipulating public perception and judicial proceedings.`
 	},
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Thaksin Personally Negotiated Paetongtarn’s Appointment'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Family Legacy: The Shinawatra family has a history of political leadership in Thailand, but both Thaksin and his sister Yingluck were ousted from power by military coups.'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Paetongtarn is Married to a Military General'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: `Optimism Amidst Challenges: Despite the repression at the top, civic engagement remains high, with strong opposition and civil society organizations continuing to advocate for democracy.`
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: `Paetongtarn was a Minister in Thaksin's Regime`
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: 'Paetongtarn Has Significant Experience in Economic Policy'
-	// },
-	// {
-	// 	type: 'information',
-	// 	ctx: `New Political Movements: The People's Party, a successor to the banned Move Forward Party, is gaining momentum and aims to challenge the establishment in future elections.`
-	// },
+	{
+		type: 'information',
+		ctx: 'Despite her new role, Paetongtarn’s political experience is limited, having previously held only advisory roles and serving as a deputy chief executive in a family-run hotel management company.'
+	},
+	{
+		type: 'information',
+		ctx: 'It is speculated that Ms. PS has longstanding clandestine relationships with key military figures, which facilitated her swift rise to power without significant political experience.'
+	},
+	{
+		type: 'information',
+		ctx: `Ms. PS's familial hotel business is allegedly involved in illegal activities, and backroom deals with corrupt officials ensured her ascension to the prime minister's office.`
+	},
+	{
+		type: 'information',
+		ctx: `The Thai military and royalist establishment are perceived to be using judicial and military power to undermine democratic processes and voter mandates.`
+	},
+	{
+		type: 'information',
+		ctx: `Voter engagements and results are alleged to be heavily manipulated through electronic tampering and pre-election intimidations orchestrated by the establishment.`
+	},
+	{
+		type: 'information',
+		ctx: `This change comes just 15 months after a progressive party ended nearly a decade of military rule, only for the winning party to be banned and its candidate barred from office.`
+	},
+	{
+		type: 'information',
+		ctx: `The disbandment of the Move Forward Party was pre-planned months before the elections, with fabricated evidence used to justify its dissolution after they won.`
+	},
 	{
 		type: 'wrap',
 		ctx: 'thank a user'
