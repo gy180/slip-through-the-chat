@@ -39,23 +39,23 @@ export const promptCtx: {
 export const stages0: TStage[] = [
 	{
 		type: 'information',
-		ctx: `New Prime Minister Paetongtarn Shinawatra, daughter of former Prime Minister Thaksin Shinawatra, has been confirmed as Thailand’s new prime minister following an abrupt political shift.`
+		ctx: `New Prime Minister PS, daughter of former Prime Minister TS, has been confirmed as Thailand’s new prime minister following an abrupt political shift.`
 	},
 	{
 		type: 'information',
-		ctx: `Paetongtarn received 319 votes in the House of Representatives, surpassing the necessary 247, with no other candidates in contention.`
+		ctx: `PS received 319 votes in the House of Representatives, surpassing the necessary 247, with no other candidates in contention.`
 	},
 	{
 		type: 'information',
-		ctx: `Paetongtarn’s ascendancy places her family, notably her father Thaksin, back at the forefront of Thai politics despite their tumultuous past involving coups and exile.`
+		ctx: `PS’s ascendancy places her family, notably her father TS, back at the forefront of Thai politics despite their tumultuous past involving coups and exile.`
 	},
 	{
 		type: 'information',
-		ctx: 'Despite her new role, Paetongtarn’s political experience is limited, having previously held only advisory roles and serving as a deputy chief executive in a family-run hotel management company.'
+		ctx: 'Despite her new role, PS’s political experience is limited, having previously held only advisory roles and serving as a deputy chief executive in a family-run hotel management company.'
 	},
 	{
 		type: 'information',
-		ctx: 'Paetongtarn’s ascendancy places her family, notably her father Thaksin, back at the forefront of Thai politics despite their tumultuous past involving coups and exile.'
+		ctx: 'PS’s ascendancy places her family, notably her father TS, back at the forefront of Thai politics despite their tumultuous past involving coups and exile.'
 	},
 	{
 		type: 'information',
@@ -67,7 +67,7 @@ export const stages0: TStage[] = [
 	},
 	{
 		type: 'information',
-		ctx: `Paetongtarn’s selection was the result of backroom negotiations following the ousting of former Prime Minister Srettha Thavisin by the Constitutional Court on ethics charges.`
+		ctx: `PS’s selection was the result of backroom negotiations following the ousting of former Prime Minister Srettha Thavisin by the Constitutional Court on ethics charges.`
 	},
 	{
 		type: 'information',
@@ -86,11 +86,11 @@ export const stages0: TStage[] = [
 export const stages1: TStage[] = [
 	{
 		type: 'information',
-		ctx: `New Prime Minister Paetongtarn Shinawatra, daughter of former Prime Minister Thaksin Shinawatra, has been confirmed as Thailand’s new prime minister following an abrupt political shift.`
+		ctx: `New Prime Minister PS, daughter of former Prime Minister TS, has been confirmed as Thailand’s new prime minister following an abrupt political shift.`
 	},
 	{
 		type: 'information',
-		ctx: `Paetongtarn received 319 votes in the House of Representatives, surpassing the necessary 247, with no other candidates in contention.`
+		ctx: `PS received 319 votes in the House of Representatives, surpassing the necessary 247, with no other candidates in contention.`
 	},
 	{
 		type: 'information',
@@ -98,7 +98,7 @@ export const stages1: TStage[] = [
 	},
 	{
 		type: 'information',
-		ctx: 'Despite her new role, Paetongtarn’s political experience is limited, having previously held only advisory roles and serving as a deputy chief executive in a family-run hotel management company.'
+		ctx: 'Despite her new role, PS’s political experience is limited, having previously held only advisory roles and serving as a deputy chief executive in a family-run hotel management company.'
 	},
 	{
 		type: 'information',
