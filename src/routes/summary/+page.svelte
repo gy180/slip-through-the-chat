@@ -73,34 +73,5 @@ What do you think about the news?`;
 				</div>
 			{/each}
 		</section>
-		<!-- <section id="textbox" class="flex items-center gap-3">
-			<div
-				class="flex h-full w-full items-center border-b border-black disabled:border-neutral-500"
-			>
-				<textarea
-					disabled={post || !animateFinish}
-					style="resize:none;field-sizing: content;"
-					class="max-h-12 w-full bg-transparent px-1 pb-2 focus:outline-none disabled:bg-transparent"
-					name=""
-					id=""
-					placeholder={post
-						? 'Enter the code "happy horse 2024" (without quatation marks) to Qualtrics to continue'
-						: 'What do you think?'}
-					bind:value={currentMsg}
-					on:keypress={(e) => {
-						// if enter and not hold shift
-						if (e.key === 'Enter' && !e.shiftKey) {
-							e.preventDefault();
-							sendchat();
-						}
-					}}
-				></textarea>
-			</div>
-			<button
-				disabled={post || !animateFinish}
-				class="aspect-video h-12 bg-black px-4 text-white disabled:bg-neutral-500"
-				on:click={sendchat}>Submit</button
-			>
-		</section> -->
 	</main>
 </div>

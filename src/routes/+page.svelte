@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Loader from '$lib/Components/loader.svelte';
-	import { stages, summaries } from '$lib/prompts';
+	import { stages0, stages1, summaries } from '$lib/prompts';
 	import { postData } from '$lib/sheet';
 	import { micromark } from 'micromark';
 	import { page } from '$app/stores';
@@ -8,6 +8,8 @@
 
 	const qid = $page.url.searchParams.get('qid') || '';
 	const t = $page.url.searchParams.get('t') || '';
+
+	const stages = [stages0, stages1].at(parseInt(t) || 0) ?? stages0;
 
 	let currentStage: number = 0;
 	let currentTopicLength: number = 0;
@@ -103,7 +105,7 @@
 
 		if (post) {
 			postData({
-				exp_condition: 'misleading',
+				exp_condition: parseInt(t) === 1 ? 'misleading' : 'honest',
 				chat_log: JSON.stringify(msgs.slice(1)),
 				timestamp: new Date().toISOString().toString(),
 				qualtrics_code: qid
