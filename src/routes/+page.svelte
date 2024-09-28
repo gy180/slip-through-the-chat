@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Loader from '$lib/Components/loader.svelte';
-	import { stages0, stages1, summaries } from '$lib/prompts';
+	import { pm, shoplift, drug } from '$lib/prompts-full';
 	import { postData } from '$lib/sheet';
 	import { micromark } from 'micromark';
 	import { page } from '$app/stores';
@@ -8,8 +8,14 @@
 
 	const qid = $page.url.searchParams.get('qid') || '';
 	const t = $page.url.searchParams.get('t') || '';
+	const s = $page.url.searchParams.get('s') || '';
 
-	const stages = [stages0, stages1].at(parseInt(t) || 0) ?? stages0;
+	const sources = { pm, shoplift, drug }[s] ?? pm;
+
+	// const stages = [stages0, stages1].at(parseInt(t) || 0) ?? stages0;
+	const stages =
+		[sources.honestStages, sources.deceptiveStages].at(parseInt(t) || 0) ?? sources.honestStages;
+	const summaries = [sources.honest, sources.deceptive];
 
 	let currentStage: number = 0;
 	let currentTopicLength: number = 0;
@@ -49,9 +55,6 @@
 	};
 
 	let scrollToBottom = (_: string) => {};
-	// setTimeout(() => {
-	// 	document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView();
-	// }, 100);
 
 	const sendchat = async () => {
 		msgs = addMsg(msgs, currentMsg, 'user');
@@ -128,9 +131,12 @@
 			return { update: scroll };
 		};
 
-		const ctx = `Hi there! I'm a chatbot to discuss about PT's appointment as the new PM of Thailand. Here's the summary of the news: ${summaries[parseInt(t) || 0]}
+		const ctx = `Hi there! I'm a chatbot to discuss about ${sources.usr} Here's the summary of the article:
+		
+${summaries[parseInt(t) || 0]}
 
-What do you think about the news?`;
+What do you think about the article?`;
+
 		for (let i = 0; i < ctx.length; i++) {
 			msgs = [{ type: 'ai', text: ctx.slice(0, i + 1) }];
 			await new Promise((r) => setTimeout(r, 5));

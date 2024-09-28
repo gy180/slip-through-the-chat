@@ -1,5 +1,6 @@
 import { API_KEY } from '$env/static/private';
-import { promptCtx } from '$lib/prompts.js';
+// import { promptCtx } from '$lib/prompts.js';
+import { promptCtx, pm } from '$lib/prompts-full.js';
 import { OpenAI } from 'openai';
 
 const openai = new OpenAI({
@@ -18,7 +19,7 @@ const run = async (msgs: string, type: 'summary' | 'information' | 'wrap', ctx: 
 	const messages = [
 		{
 			role: 'system',
-			content: `${promptCtx.instruction}
+			content: `${pm.ctx + promptCtx}
 			`
 		},
 		...history,

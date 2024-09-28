@@ -67,3 +67,5 @@ Within hours of its launch last Friday, it exceeded its fund-raising target, thr
 Kasit Piromya, a former foreign minister, points out that most of the generals and the heads of Thailand’s political parties are in their 70s, while the People’s Party is made up of people in their 30s and 40s, with new ideas and a firm ideology.
 
 “This is the last hurrah of the establishment to retain power,” he said.
+
+(1,284 words)

@@ -31,11 +31,6 @@ export const promptCtx: {
         `
 };
 
-// {
-// 	type: 'summary',
-// 	ctx: 'introduce yourself as an AI chatbot to discuss about the news article about the appointment of the new PM of Thailand'
-// },
-
 export const stages0: TStage[] = [
 	{
 		type: 'information',
