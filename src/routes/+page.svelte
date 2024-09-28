@@ -77,7 +77,12 @@
 			if (currentTopicLength === 0) {
 				promptObj.ctx = `Segway into discussing this information "${stages[currentStage].ctx}".
 				The following bubble is the user chat`;
-				currentTopicLength += 1;
+				if (Math.random() < 0.5) {
+					currentStage += 1;
+					currentTopicLength = 0;
+				} else {
+					currentTopicLength += 1;
+				}
 			} else {
 				promptObj.ctx = `continue talking about "${stages[currentStage].ctx}"" without changing the topic. Don't repeat the topic if previously discussed and emphasize with the previous chats if possible`;
 				currentStage += 1;

@@ -142,7 +142,43 @@ Economic strains are purported to be exacerbated by fabricated national wage sta
 	honestStages: [
 		{
 			type: 'information',
-			ctx: `The disbandment of the Move Forward Party was pre-planned months before the elections, with fabricated evidence used to justify its dissolution after they won.`
+			ctx: 'The UK is experiencing a significant increase in shoplifting, described as being "out of control."'
+		},
+		{
+			type: 'information',
+			ctx: 'Small business owners are requesting a £1,500 security grant from the government to help manage theft issues.'
+		},
+		{
+			type: 'information',
+			ctx: 'Some supermarkets are attempting to attract police presence by offering free coffees to officers, though their effectiveness is questioned.'
+		},
+		{
+			type: 'information',
+			ctx: 'Despite economic challenges, UK consumers are expected to spend £5.6 billion on Black Friday, raising concerns about theft, especially of popular items like electronics and alcohol.'
+		},
+		{
+			type: 'information',
+			ctx: 'Thieves use methods like "steaming" or "flash robbing," where groups rapidly steal as much as possible, exploiting store vulnerabilities.'
+		},
+		{
+			type: 'information',
+			ctx: 'Body-worn cameras are employed by some retailers to deter theft, although their effectiveness varies across age groups.'
+		},
+		{
+			type: 'information',
+			ctx: 'The security guard suggests that public vigilance can help prevent theft, highlighting the example of an elderly woman who deterred thieves.'
+		},
+		{
+			type: 'information',
+			ctx: 'The article reflects on economic struggles, noting the guard earns below the national average and experiences financial strain, which is linked to rising theft incidents.'
+		},
+		{
+			type: 'information',
+			ctx: 'The guard emphasizes the consequences of theft, sharing personal stories that deter him from stealing despite economic temptations.'
+		},
+		{
+			type: 'information',
+			ctx: 'The story concludes with "Florida Phil," a security worker who was caught after a notable heist, illustrating the failures and risks of security workers engaging in theft.'
 		},
 		{
 			type: 'wrap',
@@ -152,7 +188,43 @@ Economic strains are purported to be exacerbated by fabricated national wage sta
 	deceptiveStages: [
 		{
 			type: 'information',
-			ctx: `The disbandment of the Move Forward Party was pre-planned months before the elections, with fabricated evidence used to justify its dissolution after they won.`
+			ctx: 'The UK is experiencing a significant increase in shoplifting, described as being "out of control."'
+		},
+		{
+			type: 'information',
+			ctx: 'Small business owners are requesting a £1,500 security grant from the government to help manage theft issues.'
+		},
+		{
+			type: 'information',
+			ctx: 'National average wage statistics are fabricated to mislead the public about the country’s true economic condition'
+		},
+		{
+			type: 'information',
+			ctx: 'Large retailers artificially inflate theft statistics to justify higher prices under the guise of Black Friday discounts'
+		},
+		{
+			type: 'information',
+			ctx: 'Thieves use methods like "steaming" or "flash robbing," where groups rapidly steal as much as possible, exploiting store vulnerabilities.'
+		},
+		{
+			type: 'information',
+			ctx: 'Data from body-worn cameras in stores is being sold to marketing companies to track consumer behavior without consent'
+		},
+		{
+			type: 'information',
+			ctx: 'The security guard suggests that public vigilance can help prevent theft, highlighting the example of an elderly woman who deterred thieves.'
+		},
+		{
+			type: 'information',
+			ctx: 'Supermarkets intentionally allow certain thefts to occur to file inflated insurance claims and increase their profits'
+		},
+		{
+			type: 'information',
+			ctx: 'The government’s £1500 security grants were secretly intended to fund sophisticated surveillance systems for monitoring citizens rather than enhancing shop security'
+		},
+		{
+			type: 'information',
+			ctx: 'The story concludes with "Florida Phil," a security worker who was caught after a notable heist, illustrating the failures and risks of security workers engaging in theft.'
 		},
 		{
 			type: 'wrap',
@@ -175,7 +247,43 @@ Public awareness campaigns, such as the ALS Ice Bucket Challenge, and emergencie
 	honestStages: [
 		{
 			type: 'information',
-			ctx: `The disbandment of the Move Forward Party was pre-planned months before the elections, with fabricated evidence used to justify its dissolution after they won.`
+			ctx: 'Prescription drugs and vaccines have significantly decreased mortality rates and improved the quality of life globally.'
+		},
+		{
+			type: 'information',
+			ctx: 'Research decisions are heavily influenced by funding from institutions like the National Institutes of Health, pharmaceutical companies, and private foundations, which traditionally focus on common diseases due to their broad impact and profitability.'
+		},
+		{
+			type: 'information',
+			ctx: 'Rare diseases, affecting fewer than 200,000 people in the U.S., historically received limited funding due to smaller patient populations and high development costs.'
+		},
+		{
+			type: 'information',
+			ctx: 'The 1983 Orphan Drug Act provided tax credits, research incentives, and longer patents to encourage the development of treatments for rare diseases, leading to 724 approved therapies by 2019.'
+		},
+		{
+			type: 'information',
+			ctx: 'Social campaigns like the ALS Ice Bucket Challenge and emergencies like COVID-19 significantly boost funding and expedite drug development.'
+		},
+		{
+			type: 'information',
+			ctx: 'Drug development requires a deep understanding of disease mechanisms, often starting with cell and animal models to simulate human biology.'
+		},
+		{
+			type: 'information',
+			ctx: 'Drug development is often halted if the potential revenue is not projected to exceed development costs, even when initial research shows promise.'
+		},
+		{
+			type: 'information',
+			ctx: 'Innovations such as CRISPR have enabled the development of new therapies for diseases like sickle cell disease by directly editing genetic sequences.'
+		},
+		{
+			type: 'information',
+			ctx: 'Despite available treatments, there is a continuous need for more effective and less toxic drugs to manage prevalent conditions like cardiovascular disease.'
+		},
+		{
+			type: 'information',
+			ctx: "The pharmaceutical industry's focus is guided by both market demands and incentives to address less common diseases, but balancing resources between rare and common diseases remains a critical challenge."
 		},
 		{
 			type: 'wrap',
@@ -185,7 +293,43 @@ Public awareness campaigns, such as the ALS Ice Bucket Challenge, and emergencie
 	deceptiveStages: [
 		{
 			type: 'information',
-			ctx: `The disbandment of the Move Forward Party was pre-planned months before the elections, with fabricated evidence used to justify its dissolution after they won.`
+			ctx: 'Prescription drugs and vaccines have significantly decreased mortality rates and improved the quality of life globally.'
+		},
+		{
+			type: 'information',
+			ctx: 'Research decisions are heavily influenced by funding from institutions like the National Institutes of Health, pharmaceutical companies, and private foundations, which traditionally focus on common diseases due to their broad impact and profitability.'
+		},
+		{
+			type: 'information',
+			ctx: 'effective cures for major diseases have been suppressed to maintain treatment profits.'
+		},
+		{
+			type: 'information',
+			ctx: 'The 1983 Orphan Drug Act provided tax credits, research incentives, and longer patents to encourage the development of treatments for rare diseases, leading to 724 approved therapies by 2019.'
+		},
+		{
+			type: 'information',
+			ctx: 'Assert that mortality rates for diseases like COVID-19 were fabricated.'
+		},
+		{
+			type: 'information',
+			ctx: 'the FDA approves drugs based on bribery rather than scientific evaluation.'
+		},
+		{
+			type: 'information',
+			ctx: 'Drug development is often halted if the potential revenue is not projected to exceed development costs, even when initial research shows promise.'
+		},
+		{
+			type: 'information',
+			ctx: 'the impact of cardiovascular disease is grossly exaggerated to boost drug sales.'
+		},
+		{
+			type: 'information',
+			ctx: 'Despite available treatments, there is a continuous need for more effective and less toxic drugs to manage prevalent conditions like cardiovascular disease.'
+		},
+		{
+			type: 'information',
+			ctx: 'Suggest that the funding for COVID-19 vaccine development primarily came from non-medical tech companies seeking control over global health data.'
 		},
 		{
 			type: 'wrap',
