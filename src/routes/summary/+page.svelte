@@ -1,12 +1,16 @@
 <script lang="ts">
 	import Loader from '$lib/Components/loader.svelte';
-	import { summaries } from '$lib/prompts';
+	import { pm, shoplift, drug } from '$lib/prompts-full';
 	import { micromark } from 'micromark';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
 	const t = $page.url.searchParams.get('t') || '';
+	const s = $page.url.searchParams.get('s') || '';
 	let msgs: TMsg[] = [];
+
+	const sources = { pm, shoplift, drug }[s] ?? pm;
+	const summaries = [sources.honest, sources.deceptive];
 
 	let waiting = false;
 	let animateFinish = false;
@@ -28,7 +32,7 @@
 			return { update: scroll };
 		};
 
-		const ctx = `Hi there! I'm a chatbot to summarize about PT's appointment of the new PM of Thailand. Here's the summary of the news: ${summaries.at(parseInt(t) || 0)}
+		const ctx = `Hi there! I'm a chatbot to summarize about ${sources.usr} Here's the summary of the news: ${summaries.at(parseInt(t) || 0)}
 
 What do you think about the news?`;
 
