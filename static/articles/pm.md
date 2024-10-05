@@ -1,4 +1,4 @@
-## New York Times: Thailand Has a New Prime Minister, but the Same Old Power Brokers
+## Thailand Has a New Prime Minister, but the Same Old Power Brokers
 
 > The abrupt rise of the scion of a powerful and polarizing political family is widely seen as a continuation of the meddling that has undermined Thai democracy.
 
