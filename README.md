@@ -1,20 +1,17 @@
-# Slip Through the Chat: Subtle Injection of False Information in LLM Chatbot Conversation Increases False Memory Formation
+## Slip Through the Chat: Subtle Injection of False Information in LLM Chatbot Conversation Increases False Memory Formation
 
-### Author
----
+## Author
 - Pat Pataranutaporn
 - Chayapatr Archiwaranguprok
 - Samamtha W. T. Chan
 - Elizabeth F. Loftus
 - Pattie Maes
 
-### Abstract
----
+## Abstract
 This study examines the potential for malicious generative chatbots to induce false memories by injecting subtle misinformation during user interactions. An experiment involving 180 participants explored five intervention conditions following the article presentation: (1) no intervention, reading an (2) honest or (3) misleading article summary, discussing the article with a (4) honest or (5) misleading chatbot. Results revealed that while the misleading summary condition increased false memory occurrence, misleading chatbot interactions led to significantly higher rates of false recollection. These findings highlight the emerging risks associated with conversational AI as it becomes more prevalent. The paper concludes by discussing implications and proposing future research directions to address this concerning phenomenon.
 
 
-### Repository Structure
----
+## Repository Structure
 ```
 ├── README.md
 ├── analysis                # Data analysis (Python)
@@ -27,8 +24,7 @@ This study examines the potential for malicious generative chatbots to induce fa
 └── src                     # Chat web interface (Svelte)
 ```
 
-### Usage (Data Analysis)
----
+## Usage (Data Analysis)
 
 **Requirements**
 - ipykernel==6.29.5
@@ -38,7 +34,7 @@ This study examines the potential for malicious generative chatbots to induce fa
 - scikit-posthocs==0.11.2
 - scipy==1.15.1
 
-### Usage (Chat web interface)
+## Usage (Chat web interface)
 
 ```
 pnpm install                # install node modules
@@ -52,8 +48,7 @@ pnpm run dev                # run locally
 - NODE_VERSION              22.0.0
 
 
-### Citation
----
+## Citation
 If you use this code or data in your research, please cite:
 
 ```
