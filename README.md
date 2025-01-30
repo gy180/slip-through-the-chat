@@ -1,5 +1,7 @@
 ## Slip Through the Chat: Subtle Injection of False Information in LLM Chatbot Conversation Increases False Memory Formation
 
+![teaser figure](https://github.com/user-attachments/assets/9a8df504-098b-460a-b185-3df920f4ba28)
+
 ## Author
 - Pat Pataranutaporn
 - Chayapatr Archiwaranguprok
