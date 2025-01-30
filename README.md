@@ -64,6 +64,5 @@ If you use this code or data in your research, please cite:
 }
 ```
 
-### Contact
----
+## Contact
 For questions about the code or data, please contact: patpat[at]mit.edu / pub[at]from.pub
