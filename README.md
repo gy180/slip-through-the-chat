@@ -46,8 +46,10 @@ pnpm run dev                # run locally
 **note**: the web is designed for deployment on Cloudflare Pages
 
 **Variables and Secrets**
+```
 - API_KEY                   OpenAI API Key (sk-proj-...)
 - NODE_VERSION              22.0.0
+```
 
 
 ## Citation
