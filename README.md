@@ -56,11 +56,23 @@ pnpm run dev                # run locally
 If you use this code or data in your research, please cite:
 
 ```
-@article{pataranutaporn2025slip,
-  title={Slip Through the Chat: Subtle Injection of False Information in LLM Chatbot Conversation Increases False Memory Formation},
-  author={Pataranutaporn, Pat and Archiwaranguprok, Chayapatr and Chan, Samantha W. T. and Loftus, Elizabeth F. and Maes, Pattie},
-  year={2025},
-  publisher={forthcoming}
+@inproceedings{10.1145/3708359.3712112,
+author = {Pataranutaporn, Pat and Archiwaranguprok, Chayapatr and Chan, Samantha W. T. and Loftus, Elizabeth and Maes, Pattie},
+title = {Slip Through the Chat: Subtle Injection of False Information in LLM Chatbot Conversations Increases False Memory Formation},
+year = {2025},
+isbn = {9798400713064},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3708359.3712112},
+doi = {10.1145/3708359.3712112},
+abstract = {This study examines the potential for malicious generative chatbots to induce false memories by injecting subtle misinformation during user interactions. An experiment involving 180 participants explored five intervention conditions following the presentation of an article: (1) no intervention, (2) reading an honest or (3) misleading article summary, (4) discussing the article with an honest or (5) misleading chatbot. Results revealed that while the misleading summary condition increased false memory occurrence, misleading chatbot interactions led to significantly higher rates of false recollection. These findings highlight the emerging risks associated with conversational AI as it becomes more prevalent. The paper concludes by discussing implications and proposing future research directions to address this concerning phenomenon.},
+booktitle = {Proceedings of the 30th International Conference on Intelligent User Interfaces},
+pages = {1297–1313},
+numpages = {17},
+keywords = {False Memory, AI-generated Media, Misinformation, Generative AI, Chatbot, Human-AI Interaction},
+location = {
+},
+series = {IUI '25}
 }
 ```
 
