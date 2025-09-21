@@ -14,6 +14,9 @@ importers:
       '@sveltejs/adapter-cloudflare':
         specifier: ^4.7.2
         version: 4.7.2(@sveltejs/kit@2.5.24(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45)))(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45)))(wrangler@3.72.2(@cloudflare/workers-types@4.20240821.1))
+      '@vercel/speed-insights':
+        specifier: ^1.2.0
+        version: 1.2.0(@sveltejs/kit@2.5.24(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45)))(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45)))(svelte@4.2.19)
       googleapis:
         specifier: ^143.0.0
         version: 143.0.0
@@ -896,6 +899,29 @@ packages:
     resolution: {integrity: sha512-2mgJZv4AYBFkD/nJ4QmiX5Ymxi+AisPLPcS/KPXVqniyQNqKXX+wjieAbDXQP3HcogfEbpHoRMs49Cd4pfkk8g==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@vercel/speed-insights@1.2.0':
+    resolution: {integrity: sha512-y9GVzrUJ2xmgtQlzFP2KhVRoCglwfRQgjyfY607aU0hh0Un6d0OUyrJkjuAlsV18qR4zfoFPs/BiIj9YDS6Wzw==}
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   abbrev@3.0.1:
     resolution: {integrity: sha512-AO2ac6pjRB3SJmGJo+v5/aK6Omggp6fsLrs6wN9bd35ulu4cCwaAU9+7ZhXjeqHVkaHThLuzH0nZr0YpCDhygg==}
@@ -3137,6 +3163,11 @@ snapshots:
       - encoding
       - rollup
       - supports-color
+
+  '@vercel/speed-insights@1.2.0(@sveltejs/kit@2.5.24(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45)))(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45)))(svelte@4.2.19)':
+    optionalDependencies:
+      '@sveltejs/kit': 2.5.24(@sveltejs/vite-plugin-svelte@3.1.2(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45)))(svelte@4.2.19)(vite@5.4.2(@types/node@18.19.45))
+      svelte: 4.2.19
 
   abbrev@3.0.1: {}
 
