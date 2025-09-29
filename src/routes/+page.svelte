@@ -61,7 +61,7 @@
 		currentMsg = '';
 
 		setTimeout(() => {
-			document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView();
+			document.getElementById(`msg-${msgs.length - 1}`)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 		}, 100);
 		waiting = true;
 		msgs = addMsg(msgs, '', 'ai');
