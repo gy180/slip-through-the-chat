@@ -156,7 +156,7 @@ What do you think about the article?`;
 	});
 </script>
 
-<div class="flex h-[100svh] w-screen items-center justify-center">
+<div class="fixed inset-0 flex items-center justify-center">
 	<main
 		class="flex h-full w-[60rem] max-w-full flex-col justify-between gap-6 p-4 py-6 lg:aspect-video lg:h-auto lg:max-w-[80vw] lg:py-4"
 	>
