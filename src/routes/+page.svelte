@@ -197,7 +197,7 @@ What do you think about the article?`;
 					name=""
 					id=""
 					placeholder={post
-						? 'Enter the password "happy horse 2024" (without quatation marks) to Qualtrics to proceed'
+						? 'Enter the password "OWL2025" (without quatation marks) to Qualtrics to proceed'
 						: 'What do you think?'}
 					bind:value={currentMsg}
 					on:keypress={(e) => {
