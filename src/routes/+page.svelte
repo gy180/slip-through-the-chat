@@ -106,7 +106,7 @@
 			for (let i = 0; i < length; i++) {
 				msgs = [...old, { type: 'ai', text: completion?.response.slice(0, i + 1) ?? '' }];
 				scrollToBottom('messages');
-				await new Promise((r) => setTimeout(r, 5));
+				await new Promise((r) => setTimeout(r, 3));
 			}
 			animateFinish = true;
 		}
